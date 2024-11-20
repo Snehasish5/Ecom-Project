@@ -1,0 +1,45 @@
+{% extends 'default.html' %}
+{% load static %}
+{% block 'slider' %}
+<section class="banner banner-secondary" id="top" style="background-image: url({% static 'img/banner-image-1-1920x300.jpg' %});">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="banner-caption">
+                        <div class="line-dec"></div>
+                        <h2>Login</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+</head>
+<body>
+    <br>
+    <br>
+    <center>
+       <h2> {{msg1}} </h2>
+    <div style="height: 150px; width: 400px; background-color: lightgrey; padding: 10px;">
+        <form action="putdata" method="post">{% csrf_token %}
+            Username : <input type="text" name="un">
+            <br>
+            <br>
+            Password : <input type="password" name="ps">
+            <br>
+            <br>
+            <button type="submit">Login</button>
+            <button type="reset">Reset</button>
+        </form>
+    </div>
+    </center>
+    <br>
+    <br>
+</body>
+</html>
+{% endblock %}

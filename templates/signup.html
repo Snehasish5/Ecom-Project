@@ -1,0 +1,59 @@
+{% extends 'default.html' %}
+{% load static %}
+{% block 'slider' %}
+<section class="banner banner-secondary" id="top" style="background-image: url({% static 'img/banner-image-1-1920x300.jpg' %});">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="banner-caption">
+                        <div class="line-dec"></div>
+                        <h2>Sign Up</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+</head>
+<body>
+    <br>
+    <br>
+    <center><h1>{{msg1}}</h1></center>
+    <br>
+    <br>
+    <center>
+        <div style="height: 450px; width: 400px; background-color: lightgrey; padding: 20px;">
+            <form action="insertdata" method="post">{% csrf_token %}
+                <br>
+                <br>
+                Name : <input type="text" name="na">
+                <br>
+                <br>
+                Address : <input type="text" name="ad">
+                <br>
+                <br>
+                Email : <input type="email" name="em">
+                <br>
+                <br>
+                Phone no. : <input type="number" name="phn">
+                <br>
+                <br>
+                Username : <input type="text" name="un">
+                <br>
+                <br>
+                Password : <input type="password" name="ps">
+                <br>
+                <br>
+                <button type="submit">Sign up</button>
+                <button type="reset">Reset</button>
+            </form>
+        </div>
+    </center>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'default.html' %}
+{% load static %}
+{% block 'slider' %}
+<section class="banner banner-secondary" id="top" style="background-image: url({% static 'img/banner-image-1-1920x300.jpg' %});">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="banner-caption">
+                        <div class="line-dec"></div>
+                        <h2>Cart</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+    {% if request.session.cart_disp_count %}
+        <div class="container">
+            <table class="table table-bordered">
+                <tr>
+                    <th>Image</th>
+                    <th>name</th>
+                    <th>price</th>
+                    <th>quantity</th>
+                    <th>Action</th>
+                </tr>
+                {% for ele in allcart %}
+                <tr>
+                    {% for key,val in ele.items %}
+                        <td><img src="{{val.0}}" style="height:100px;width: 120px;"></td>
+                        <td>{{val.1}}</td>
+                        <td>{{val.2}}</td>
+                        <td>{{val.3}}</td>
+                        <td><a href="remove/{{key}}" class="btn">Remove</a>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </table>
+            <div class="row">
+                <div class="col-lg-4"></div>
+                <div class="col-lg-4"></div>
+                <div class="col-lg-4">
+                    <div class="panel panel-info ">
+                        <div class="panel-heading">Total </div>
+                        <div class="panel-body">
+                            Rs. {{request.session.total_amount}}<br><br>
+                            <a href="/checkout" class="btn btn-info">Proceed</a> <!-- ekhan theke urls.py te gie checkout er jonno link banate hbe -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <h3><center>Cart is Empty</center></h3>
+    {% endif %}
+{% endblock %}
